@@ -17,7 +17,7 @@ class Register extends Dbh{
         $row = $result -> fetch_assoc();
 
         if(!$this->name){
-            header('location:../index.php?error=emptyusername');
+            header('location:../index.php?error=emptyUsername');
             exit();
         }
         else if(strtolower($row["Username"]) === strtolower($this->name)){
@@ -29,6 +29,16 @@ class Register extends Dbh{
         }
     }
     public function getMail(){
-
+       if(!$this->mail){
+        header('location:../index.php?error=emptyEmail');
+        exit();
+       }
+       else if(!filter_var($this->mail, FILTER_VALIDATE_EMAIL)){
+        header('location:../index.php?error=IncorrectEmail');
+        exit();
+       }
+       else{
+        return $this->mail;
+       }
     }
 }
