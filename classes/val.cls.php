@@ -11,7 +11,7 @@ class Validate extends Dbh{
         $this->conf = $confirm;
     }
 
-    public function getUsrName(){
+    protected function getUsrName(){
         $sql = 'Select * from customer where Username = "mika"';
         $result = $this->connect()->query($sql);
         $row = $result -> fetch_assoc();
@@ -28,7 +28,7 @@ class Validate extends Dbh{
             return $this->name;
         }
     }
-    public function getMail(){
+    protected function getMail(){
         if(!$this->mail){
          header('location:../index.php?error=emptyEmail');
          exit();
@@ -39,6 +39,32 @@ class Validate extends Dbh{
         }
         else{
          return $this->mail;
+        }
+     }
+     protected function getPass(){
+        if(!$this->pass){
+         header('location:../index.php?error=emptyPassword');
+         exit();
+        }
+        else if(strlen($this->pass) < 8){
+         header('location:../index.php?error=passwordLength');
+         exit();
+        }
+        else{
+         return $this->pass;
+        }
+     }
+     protected function getConf(){
+        if(!$this->conf){
+         header('location:../index.php?error=emptyConfirmPassword');
+         exit();
+        }
+        else if($this->pass == $this->pass){
+         header('location:../index.php?error=passwordNotConfirmed');
+         exit();
+        }
+        else{
+         return $this->pass;
         }
      }
 }
