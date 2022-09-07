@@ -9,13 +9,9 @@ if($_POST['submit']){
 
     require 'reg.cls.php';
     $obj = new Register($userName, $email, $password, $confirmPassword);
-    $obj->try();
+    echo $obj->getUsrName();
 
 }
 else{
     echo 'didn\'t work';
 }
- 
-//  header('location: ../index.php');
- 
-?>
