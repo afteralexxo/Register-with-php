@@ -9,5 +9,5 @@ if($_POST['submit']){
 
     require '../classes/reg.cls.php';
     $obj = new Register($userName, $email, $password, $confirmPassword);
-    $obj->user();
+    $obj->validator();
 }

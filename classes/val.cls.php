@@ -59,12 +59,12 @@ class Validate extends Dbh{
          header('location:../index.php?error=emptyConfirmPassword');
          exit();
         }
-        else if($this->pass == $this->pass){
-         header('location:../index.php?error=passwordNotConfirmed');
+        else if($this->conf != $this->pass){
+         header('location:../index.php?error=passwordNotThesame');
          exit();
         }
         else{
-         return $this->pass;
+         return $this->conf;
         }
      }
 }

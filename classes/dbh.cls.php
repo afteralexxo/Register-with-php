@@ -1,6 +1,5 @@
 <?php
 class Dbh{
-    
     protected function connect()
     {
         $con = new mysqli('localhost','root', '', 'registerphp');
