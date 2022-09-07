@@ -10,8 +10,4 @@ if($_POST['submit']){
     require 'reg.cls.php';
     $obj = new Register($userName, $email, $password, $confirmPassword);
     echo $obj->getUsrName();
-
-}
-else{
-    echo 'didn\'t work';
 }
