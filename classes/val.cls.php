@@ -1,6 +1,6 @@
 <?php 
 require 'dbh.cls.php';
-class Register extends Dbh{
+class Validate extends Dbh{
     private $name; private $mail; private $pass; private $conf;
     
     public function __construct($userName, $email, $password, $confirm)
@@ -29,6 +29,16 @@ class Register extends Dbh{
         }
     }
     public function getMail(){
-
-    }
+        if(!$this->mail){
+         header('location:../index.php?error=emptyEmail');
+         exit();
+        }
+        else if(!filter_var($this->mail, FILTER_VALIDATE_EMAIL)){
+         header('location:../index.php?error=IncorrectEmail');
+         exit();
+        }
+        else{
+         return $this->mail;
+        }
+     }
 }
