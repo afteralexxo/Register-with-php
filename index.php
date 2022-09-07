@@ -1,7 +1,7 @@
-<?php include_once 'Styles.css';?>
 <html>
+    <link rel="stylesheet" href="style.css">
     <script src="../jquery-3.6.1.js"></script>
-    <script src="Script.js"></script>
+    <script src="script.js"></script>
     <div>
         <form action="">
             <fieldset>

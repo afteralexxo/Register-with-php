@@ -1,5 +1,3 @@
-<style>
-
 form{
     height: 50%;
     display: flex;
@@ -30,5 +28,3 @@ input[type="submit"]{
     width: 5.5em;
     left: 8ch;
 }
-
-</style>
