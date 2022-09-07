@@ -11,7 +11,7 @@ fieldset{
     flex-direction: column;
     align-items: center;
     border-radius: .5em;
-    box-shadow: #000 10px 10px 30px 0px inset;
+    box-shadow: rgba(0, 0, 0, 0.664) 10px 10px 50px;
     background: rgba(117, 97, 97, 0.226);
 }
 input{
@@ -27,4 +27,6 @@ input[type="submit"]{
     top: .5em;
     width: 5.5em;
     left: 8ch;
+    box-shadow: -4px 4px 10px inset rgb(248, 252, 11);
+    box-shadow: -4px -4px 5px inset rgba(21, 255, 0, 0.342);
 }
