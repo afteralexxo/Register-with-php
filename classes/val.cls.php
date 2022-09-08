@@ -12,23 +12,28 @@ class Validate extends Dbh{
     }
 
     protected function getUsrName(){
-        $sql = 'Select * from customer where Username = "mika"';
+        $sql = 'Select * from customer';
         $result = $this->connect()->query($sql);
-        $row = $result -> fetch_assoc();
+       
 
         if(!$this->name){
             header('location:../index.php?error=emptyusername');
             exit();
         }
-        else if(strtolower($row["Username"]) === strtolower($this->name)){
-            header('location:../index.php?error=dupliacteName');
-            exit();
-        }
         else{
+            while($row = $result -> fetch_assoc()){
+             if(strtolower($row['Username']) ==  strtolower($this->name)){
+                header('location:../index.php?error=existingUserName');
+                exit();
+             }
+           }
             return $this->name;
         }
     }
     protected function getMail(){
+        $sql = 'Select * from customer';
+        $result = $this->connect()->query($sql);
+
         if(!$this->mail){
          header('location:../index.php?error=emptyEmail');
          exit();
@@ -38,9 +43,15 @@ class Validate extends Dbh{
          exit();
         }
         else{
+            while($row = $result -> fetch_assoc()){
+                if(strtolower($row['Email']) ==  strtolower($this->mail)){
+                   header('location:../index.php?error=existingEmailAddress');
+                   exit();
+                }
          return $this->mail;
         }
      }
+    }
      protected function getPass(){
         if(!$this->pass){
          header('location:../index.php?error=emptyPassword');

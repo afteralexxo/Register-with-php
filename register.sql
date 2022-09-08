@@ -12,7 +12,6 @@ CREATE TABLE customer (
      
 INSERT INTO customer ( `Username` , `Email` , `Pass`)
  VALUES
- ('Alex','itsalexog@gmailcom','@l3xOg01369'),
- ('Mika','mikasplidd2OULOOKcom', 'mikadredagg');
+ ('Charles','charli@yahoo.com','charin333');
 
  SELECT * FROM customer;
