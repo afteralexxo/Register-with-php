@@ -12,24 +12,19 @@ class Validate extends Dbh{
     }
 
     protected function getUsrName(){
-        $sql = 'Select * from customer';
-        $result = $this->connect()->query($sql);
-       
-
         if(!$this->name){
             header('location:../index.php?error=emptyusername');
             exit();
         }
-        else{
-            while($row = $result -> fetch_assoc()){
-             if(strtolower($row['Username']) ==  strtolower($this->name)){
-                header('location:../index.php?error=existingUserName');
+        else if(strlen($this->name) < 3){
+                header('location:../index.php?error=lengthName');
                 exit();
              }
-           }
+        else{
             return $this->name;
+            }
         }
-    }
+
     protected function getMail(){
         $sql = 'Select * from customer';
         $result = $this->connect()->query($sql);
